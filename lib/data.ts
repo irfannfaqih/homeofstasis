@@ -108,20 +108,7 @@ export async function getPublicPortalContent() {
   const client = createPublicClient();
   if (!client) return samplePortalContent;
   try {
-    const content = await fetchContent(client, false);
-    const currentHeroes = content.heroSlides.filter(
-      (slide) => slide.imageUrl && !slide.imageUrl.includes("placehold.co"),
-    );
-    const currentHeroUrls = new Set(currentHeroes.map((slide) => slide.imageUrl));
-    const nextSortOrder = Math.max(-1, ...currentHeroes.map((slide) => slide.sortOrder)) + 1;
-    const bundledHeroes = samplePortalContent.heroSlides
-      .filter((slide) => !currentHeroUrls.has(slide.imageUrl))
-      .map((slide, index) => ({
-        ...slide,
-        id: -(index + 1),
-        sortOrder: nextSortOrder + index,
-      }));
-    return { ...content, heroSlides: [...currentHeroes, ...bundledHeroes] };
+    return await fetchContent(client, false);
   } catch (error) {
     console.warn("Failed to load Supabase portal content; using bundled fallback.", error);
     return samplePortalContent;
