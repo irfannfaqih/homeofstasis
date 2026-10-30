@@ -26,10 +26,8 @@
 .heroArrow:hover{background:var(--brand-gradient);opacity:1}
 .heroArrowPrevious{left:0}.heroArrowNext{right:0}
 .intro{padding:17px 24px 19px;background:#fff}
-.intro h1{margin:0 0 32px;color:var(--brand-deep);font-size:14px;font-weight:650;letter-spacing:-.01em}
-.marketplaceNav{display:flex;align-items:center;justify-content:flex-start;gap:28px}
-.marketplaceNav a{display:flex;min-width:0;min-height:50px;flex:0 0 auto;align-items:center;justify-content:center;gap:7px;padding:6px 10px;border:1px solid #ececec;background:#fff;box-shadow:0 5px 14px rgb(0 0 0 / 16%);color:#111;text-decoration:none;font-size:15px;font-weight:400;letter-spacing:-.025em;transition:border-color .18s ease,box-shadow .18s ease,color .18s ease,transform .18s ease}
-.marketLogo{width:28px;height:28px;flex:0 0 28px;background-position:center;background-repeat:no-repeat;background-size:contain}
+.intro h1{margin:0;color:var(--brand-deep);font-size:14px;font-weight:650;letter-spacing:-.01em}
+.marketLogo{width:24px;height:24px;flex:0 0 24px;background-position:center;background-repeat:no-repeat;background-size:contain}
 .marketLogoFallback{display:grid;place-items:center;border:1px solid #bbb;background:#eee;font-size:9px;font-weight:700}
 .marketplaceShopee{--market-deep:#581c22;--market-mid:#7e2d2d;--market-accent:#a34a3b;--market-overlay:rgb(71 18 24 / 70%);--market-shadow:rgb(88 28 34 / 24%);--market-card-background:radial-gradient(ellipse at 86% 8%,rgb(255 106 61 / 38%) 0%,transparent 46%),radial-gradient(ellipse at 58% 112%,rgb(112 12 15 / 25%) 0%,transparent 52%),linear-gradient(102deg,#a31d15 0%,#a91e17 15%,#b22019 30%,#c5291e 44%,#df2c2b 60%,#f1432b 78%,#fb532c 100%)}
 .marketplaceTokopedia{--market-deep:#18372e;--market-mid:#315744;--market-accent:#64806d;--market-overlay:rgb(18 48 38 / 72%);--market-shadow:rgb(24 55 46 / 22%);--market-card-background:radial-gradient(ellipse at 88% 4%,rgb(124 176 114 / 44%) 0%,transparent 45%),radial-gradient(ellipse at 60% 112%,rgb(2 31 17 / 28%) 0%,transparent 54%),linear-gradient(102deg,#052a17 0%,#0a301d 16%,#0c3621 30%,#15452a 46%,#245f3a 64%,#407846 83%,#7cb072 100%)}
@@ -37,8 +35,8 @@
 .marketplaceDefault{--market-deep:var(--brand-deep);--market-mid:#7f1f2a;--market-accent:var(--brand-red);--market-overlay:rgb(81 20 32 / 70%);--market-shadow:rgb(81 20 32 / 24%)}
 .marketplaceSections{background:#fff}
 .marketplaceSection{scroll-margin-top:0}
-.sectionHeading{display:flex;height:44px;align-items:center;padding:0 24px;background:#fff}
-.sectionHeading h2{margin:0;color:var(--market-deep,var(--brand-deep));font-size:9px;font-weight:700}
+.sectionHeading{display:flex;height:56px;align-items:center;gap:9px;padding:0 24px;background:#fff}
+.sectionHeading h2{margin:0;color:var(--market-deep,var(--brand-deep));font-size:14px;font-weight:700;letter-spacing:-.01em}
 .promoList{display:grid;gap:10px;padding:0 24px 24px}
 .promoButton{position:relative;display:grid;min-height:78px;grid-template-columns:minmax(0,1fr) auto;align-items:center;overflow:hidden;padding:15px 18px;border:0;background:var(--market-card-background,linear-gradient(125deg,var(--market-deep,var(--brand-deep)) 0%,var(--market-mid,#7f1f2a) 58%,var(--market-accent,var(--brand-red)) 100%));background-position:0 50%;background-size:112% 112%;box-shadow:0 5px 14px var(--market-shadow,rgb(81 20 32 / 18%));color:#fff;text-decoration:none;transition:background-position .5s cubic-bezier(.22,.61,.36,1),box-shadow .22s ease,transform .22s ease}
 .promoIdentity{position:relative;z-index:2;display:grid;min-width:0;gap:3px;width:52%}
@@ -69,7 +67,6 @@
 .searchField input{width:100%;padding:15px 0;border:0;outline:0;background:transparent}
 .searchResults{display:grid;gap:8px;margin-top:18px}.searchResults a{display:grid;gap:4px;padding:14px;border:1px solid #ddd;color:#111;text-decoration:none;transition:border-color .18s ease,background .18s ease,transform .18s ease}.searchResults a span{color:var(--brand-red);font-size:9px}.searchResults a strong{font-size:13px}.searchResults>p{padding:24px;border:1px dashed #ccc;color:#777;text-align:center;font-size:12px}
 .srOnly{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-@media(max-width:420px){.marketplaceNav{gap:16px}.marketplaceNav a{min-height:46px;gap:6px;padding:6px 7px;font-size:14px}.marketLogo{width:25px;height:25px;flex-basis:25px}.intro{padding-inline:18px}.sectionHeading{padding-inline:18px}.promoList{padding-inline:18px}}
-@media(max-width:350px){.marketplaceNav{gap:8px}.marketplaceNav a{min-height:42px;gap:5px;padding:5px;font-size:12.5px}.marketLogo{width:23px;height:23px;flex-basis:23px}}
-@media(hover:hover) and (pointer:fine){.headerActions button:hover{transform:scale(1.05)}.heroArrow:hover{transform:scale(1.04)}.heroSlideClickable:hover .heroCopy{transform:translateY(-3px)}.marketplaceNav a:hover{box-shadow:0 4px 10px var(--market-shadow,rgb(81 20 32 / 14%));transform:translateY(-1px)}.promoButton:hover{background-position:100% 50%;box-shadow:0 9px 22px var(--market-shadow,rgb(81 20 32 / 28%));transform:translateY(-2px)}.promoButton:hover .promoArrow,.promoButton:focus-visible .promoArrow{transform:translateX(4px)}.drawer nav a:hover{padding-left:12px;background:var(--brand-tint);color:var(--brand-deep)}.searchResults a:hover{border-color:var(--brand-red);background:var(--brand-tint);transform:translateX(2px)}.footerBottom a:hover{color:#fff}}
-@media(prefers-reduced-motion:reduce){.drawer,.searchPanel,.headerActions button,.heroArrow,.heroSlideClickable .heroCopy,.marketplaceNav a,.promoButton,.promoArrow,.drawer nav a,.searchResults a{transition:none}.heroSlideEnterRight,.heroSlideLeaveLeft,.heroSlideEnterLeft,.heroSlideLeaveRight{animation:none}}
+@media(max-width:420px){.intro{padding-inline:18px}.sectionHeading{padding-inline:18px}.promoList{padding-inline:18px}}
+@media(hover:hover) and (pointer:fine){.headerActions button:hover{transform:scale(1.05)}.heroArrow:hover{transform:scale(1.04)}.heroSlideClickable:hover .heroCopy{transform:translateY(-3px)}.promoButton:hover{background-position:100% 50%;box-shadow:0 9px 22px var(--market-shadow,rgb(81 20 32 / 28%));transform:translateY(-2px)}.promoButton:hover .promoArrow,.promoButton:focus-visible .promoArrow{transform:translateX(4px)}.drawer nav a:hover{padding-left:12px;background:var(--brand-tint);color:var(--brand-deep)}.searchResults a:hover{border-color:var(--brand-red);background:var(--brand-tint);transform:translateX(2px)}.footerBottom a:hover{color:#fff}}
+@media(prefers-reduced-motion:reduce){.drawer,.searchPanel,.headerActions button,.heroArrow,.heroSlideClickable .heroCopy,.promoButton,.promoArrow,.drawer nav a,.searchResults a{transition:none}.heroSlideEnterRight,.heroSlideLeaveLeft,.heroSlideEnterLeft,.heroSlideLeaveRight{animation:none}}

@@ -19,18 +19,6 @@ function marketplaceToneClass(name: string) {
   return styles.marketplaceDefault;
 }
 
-function marketplaceCategoryRank(name: string) {
-  const normalized = name.toLocaleLowerCase("id-ID");
-  if (normalized.includes("shopee")) return 0;
-  if (normalized.includes("tiktok")) return 1;
-  if (normalized.includes("tokopedia")) return 2;
-  return 3;
-}
-
-function marketplaceCategoryLabel(name: string) {
-  return name.toLocaleLowerCase("id-ID").includes("tiktok") ? "Tiktok" : name;
-}
-
 function countryName(marketplace: Marketplace, title: string) {
   const prefixes = [marketplace.displayName, marketplace.name].sort((a, b) => b.length - a.length);
   const normalizedTitle = title.trim();
@@ -170,15 +158,12 @@ export function PublicPortal({ content }: Props) {
 
         <section className={styles.intro}>
           <h1>{content.settings.siteName}</h1>
-          <nav className={styles.marketplaceNav} aria-label="Navigasi marketplace">
-            {[...content.marketplaces].sort((a, b) => marketplaceCategoryRank(a.name) - marketplaceCategoryRank(b.name)).map((marketplace) => <a className={marketplaceToneClass(marketplace.name)} key={marketplace.id} href={`#marketplace-${marketplace.id}`}><MarketplaceIcon name={marketplace.name} logoUrl={marketplace.logoUrl} /><span>{marketplaceCategoryLabel(marketplace.name)}</span></a>)}
-          </nav>
         </section>
 
         <div className={styles.marketplaceSections}>
           {content.marketplaces.map((marketplace) => (
             <section className={`${styles.marketplaceSection} ${marketplaceToneClass(marketplace.name)}`} id={`marketplace-${marketplace.id}`} key={marketplace.id}>
-              <div className={styles.sectionHeading}><h2>{marketplace.name}</h2></div>
+              <div className={styles.sectionHeading}><MarketplaceIcon name={marketplace.name} logoUrl={marketplace.logoUrl} /><h2>{marketplace.name}</h2></div>
               <div className={styles.promoList}>
                 {marketplace.promos.map((promo) => {
                   const country = countryName(marketplace, promo.title);
