@@ -338,8 +338,6 @@ export async function saveSettingsAction(formData: FormData): Promise<CmsActionR
       search_scope: searchScope,
       link_target: linkTarget,
       hide_empty_marketplaces: formData.get("hideEmptyMarketplaces") === "on",
-      footer_title: requiredText(formData, "footerTitle", "Judul footer", 120),
-      footer_description: optionalText(formData, "footerDescription", 600),
       copyright_text: requiredText(formData, "copyrightText", "Teks copyright", 180),
       terms_label: requiredText(formData, "termsLabel", "Label Terms", 80),
       terms_url: httpUrl(optionalText(formData, "termsUrl", 500), "Link Terms", false),

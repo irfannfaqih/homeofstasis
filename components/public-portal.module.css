@@ -49,9 +49,6 @@
 .promoButton:focus-visible{outline:2px solid var(--brand-red);outline-offset:3px}
 .promoButton:active{transform:scale(.99)}
 .footer{background:#fff;text-align:center}
-.footerInfo{display:grid;min-height:193px;align-content:center;justify-items:center;padding:38px 25px}
-.footerInfo h2{margin:0 0 8px;font-size:15px;font-weight:400}
-.footerInfo p{max-width:310px;margin:0;color:#555;font-size:8px;line-height:1.35}
 .footerBottom{display:grid;min-height:135px;align-content:space-between;justify-items:center;padding:30px 25px 17px;background:var(--brand-gradient);color:#fff}
 .footerBottom>.brand{transform:scale(1.55);transform-origin:center top}
 .footerBottom>div{display:flex;width:100%;align-items:center;justify-content:space-around;gap:24px;color:rgb(255 255 255 / 78%);font-size:8px}

@@ -194,7 +194,6 @@ export function PublicPortal({ content }: Props) {
       </main>
 
       <footer className={styles.footer} id="about">
-        <div className={styles.footerInfo}><h2>{content.settings.footerTitle}</h2>{content.settings.footerDescription && <p>{content.settings.footerDescription}</p>}</div>
         <div className={styles.footerBottom}><Brand large /><div><small>{content.settings.copyrightText}</small>{content.settings.termsUrl ? <a href={content.settings.termsUrl} target={target} rel={target ? "noreferrer" : undefined}>{content.settings.termsLabel}</a> : <span>{content.settings.termsLabel}</span>}</div></div>
       </footer>
 

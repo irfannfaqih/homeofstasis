@@ -296,8 +296,6 @@ export function CmsEditor({ content }: { content: PortalContent }) {
             <Field label="Interval carousel (detik)"><input name="carouselIntervalSeconds" type="number" min="3" max="15" defaultValue={content.settings.carouselIntervalSeconds} required /></Field>
             <Field label="Cakupan pencarian"><select name="searchScope" defaultValue={content.settings.searchScope}><option value="marketplaces_and_promos">Marketplace & negara</option><option value="marketplaces_only">Brand marketplace saja</option></select></Field>
             <Field label="Link dibuka pada"><select name="linkTarget" defaultValue={content.settings.linkTarget}><option value="new_tab">Tab baru</option><option value="same_tab">Tab yang sama</option></select></Field>
-            <Field label="Judul footer"><input name="footerTitle" defaultValue={content.settings.footerTitle} required /></Field>
-            <Field label="Deskripsi footer"><textarea name="footerDescription" defaultValue={content.settings.footerDescription ?? ""} rows={3} /></Field>
             <Field label="Teks copyright"><input name="copyrightText" defaultValue={content.settings.copyrightText} required /></Field>
             <Field label="Label Terms"><input name="termsLabel" defaultValue={content.settings.termsLabel} required /></Field>
             <Field label="Link Terms (opsional)"><input name="termsUrl" type="url" defaultValue={content.settings.termsUrl ?? ""} placeholder="https://..." /></Field>
