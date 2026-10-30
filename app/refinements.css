@@ -1,0 +1,20 @@
+.uiContextLabel.uiContextLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.uiNaturalWordmark.uiNaturalWordmark {
+  letter-spacing: 0;
+}
+
+.cmsOfficialBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--brand-deep);
+  font-size: 10px;
+  text-decoration: none;
+}

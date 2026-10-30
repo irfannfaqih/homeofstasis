@@ -1,0 +1,93 @@
+import type { PortalContent } from "@/lib/types";
+
+export const samplePortalContent: PortalContent = {
+  source: "sample",
+  heroSlides: [
+    {
+      id: 1,
+      title: "Introducing Home of Stasis",
+      description: "Temukan marketplace resmi Stasis di berbagai negara dalam satu portal.",
+      imageUrl: "/hero/team-red.jpg",
+      altText: "Tim Home of Stasis dengan latar merah",
+      destinationUrl: "https://example.com/campaign/stasis",
+      sortOrder: 0,
+      isActive: true,
+    },
+    {
+      id: 2,
+      title: "Informasi atau Campaign",
+      description: "Slide informasi dapat ditampilkan tanpa destination link.",
+      imageUrl: "/hero/team-gray.jpg",
+      altText: "Tim Home of Stasis dengan latar abu-abu",
+      destinationUrl: null,
+      sortOrder: 1,
+      isActive: true,
+    },
+    {
+      id: 3,
+      title: "Featured Collection",
+      description: "Setiap slide dapat diarahkan ke halaman yang berbeda.",
+      imageUrl: "/hero/team-coral.jpg",
+      altText: "Tim Home of Stasis dengan latar coral",
+      destinationUrl: "https://example.com/new-arrival",
+      sortOrder: 2,
+      isActive: true,
+    },
+  ],
+  marketplaces: [
+    {
+      id: 1,
+      name: "Shopee",
+      displayName: "Shopee",
+      logoUrl: null,
+      sortOrder: 0,
+      isActive: true,
+      promos: [
+        { id: 1, title: "Indonesia", destinationUrl: "https://example.com/shopee/indonesia", sortOrder: 0, isActive: true },
+        { id: 2, title: "Malaysia", destinationUrl: "https://example.com/shopee/malaysia", sortOrder: 1, isActive: true },
+        { id: 3, title: "Philippines", destinationUrl: "https://example.com/shopee/philippines", sortOrder: 2, isActive: true },
+      ],
+    },
+    {
+      id: 2,
+      name: "TikTok",
+      displayName: "TikTok Shop",
+      logoUrl: null,
+      sortOrder: 1,
+      isActive: true,
+      promos: [
+        { id: 4, title: "Indonesia", destinationUrl: "https://example.com/tiktok/indonesia", sortOrder: 0, isActive: true },
+        { id: 5, title: "Malaysia", destinationUrl: "https://example.com/tiktok/malaysia", sortOrder: 1, isActive: true },
+      ],
+    },
+    {
+      id: 3,
+      name: "Tokopedia",
+      displayName: "Tokopedia",
+      logoUrl: null,
+      sortOrder: 2,
+      isActive: true,
+      promos: [
+        { id: 6, title: "Indonesia", destinationUrl: "https://example.com/tokopedia/indonesia", sortOrder: 0, isActive: true },
+      ],
+    },
+  ],
+  navigationLinks: [
+    { id: 1, label: "Tentang Stasis", destinationUrl: "#about", sortOrder: 0, isActive: true },
+    { id: 2, label: "Hubungi Kami", destinationUrl: "#contact", sortOrder: 1, isActive: true },
+  ],
+  settings: {
+    siteName: "Home of Stasis",
+    headerLogoUrl: null,
+    carouselIntervalSeconds: 5,
+    searchScope: "marketplaces_and_promos",
+    linkTarget: "new_tab",
+    hideEmptyMarketplaces: true,
+    footerTitle: "Home of Stasis",
+    footerDescription: "Akses marketplace resmi Stasis untuk setiap negara.",
+    footerLogoUrl: null,
+    copyrightText: "© 2026 Home of Stasis",
+    termsLabel: "Terms & Policies",
+    termsUrl: null,
+  },
+};

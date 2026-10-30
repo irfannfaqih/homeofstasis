@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stasis Marketplace Portal
 
-## Getting Started
+Portal mobile-first dan CMS sederhana untuk mengelola hero carousel, marketplace per negara, menu sidebar, pencarian, serta footer. Tanpa konfigurasi Supabase, aplikasi otomatis berjalan dalam **Mode Demo** dengan data contoh.
 
-First, run the development server:
+## Menjalankan aplikasi
+
+Persyaratan: Node.js 22 atau lebih baru.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev -- --webpack
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Portal publik: `http://localhost:3000`
+- Login CMS: `http://localhost:3000/admin`
+- CMS Mode Demo: `http://localhost:3000/admin/cms`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pemeriksaan proyek:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Menghubungkan Supabase
 
-To learn more about Next.js, take a look at the following resources:
+1. Buat project baru di Supabase.
+2. Salin `.env.example` menjadi `.env.local`.
+3. Isi URL project dan **Publishable key** dari halaman API Keys Supabase.
+4. Login dan hubungkan Supabase CLI, lalu kirim migration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx supabase login
+npx supabase link --project-ref PROJECT_REF_ANDA
+npx supabase db push
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Migration membuat tabel, index, Row Level Security, policy admin, dan bucket publik `portal-assets`. File gambar dibatasi maksimal 3 MB dengan format JPG, PNG, WEBP, atau SVG.
 
-## Deploy on Vercel
+## Membuat akun admin
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pendaftaran publik dimatikan. Buat user email/password dari **Supabase Dashboard → Authentication → Users**, lalu jalankan perintah berikut dari SQL Editor dengan mengganti alamat email:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sql
+update auth.users
+set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb)
+  || '{"role":"admin"}'::jsonb
+where email = 'admin@contoh.com';
+```
+
+Logout lalu login kembali agar token memuat claim `app_metadata.role = admin`. CMS dan policy database sama-sama memeriksa claim tersebut.
+
+## Struktur penting
+
+- `app/page.tsx` — portal publik
+- `app/admin/page.tsx` — login CMS
+- `app/admin/cms/page.tsx` — CMS satu halaman
+- `app/admin/cms/actions.ts` — CRUD, upload, toggle, dan penyimpanan urutan
+- `supabase/migrations/` — schema dan policy database
+- `supabase/seed.sql` — data contoh untuk database lokal
+
+Untuk menjalankan Supabase secara lokal, Docker Desktop harus aktif, kemudian gunakan `npx supabase start` dan `npx supabase db reset`.
+
+## Deployment ke Vercel
+
+1. Hubungkan repository ini ke Vercel dengan framework preset **Next.js**.
+2. Gunakan Node.js 22 dan perintah build `npm run build`.
+3. Tambahkan environment variables berikut untuk Production, Preview, dan Development:
+
+```text
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+```
+
+4. Setelah URL production tersedia, tambahkan URL tersebut pada konfigurasi URL Supabase Auth.
+5. Jalankan smoke test pada `/`, `/admin`, dan `/admin/cms` setelah deployment.
+
+Jangan memasukkan secret key atau `service_role` key ke environment variable yang diawali `NEXT_PUBLIC_`.

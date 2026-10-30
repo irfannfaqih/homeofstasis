@@ -1,0 +1,63 @@
+.frame {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.image,
+.gradientImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  height: auto;
+}
+
+.gradientImage {
+  aspect-ratio: 807 / 221;
+  background: var(--brand-gradient);
+  -webkit-mask: url("/stasis-logo-horizontal-v2.png") center / contain no-repeat;
+  mask: url("/stasis-logo-horizontal-v2.png") center / contain no-repeat;
+}
+
+.small {
+  width: 86px;
+  height: 32px;
+}
+
+.small .image,
+.small .gradientImage {
+  width: 108px;
+}
+
+.large {
+  width: 128px;
+  height: 48px;
+}
+
+.large .image,
+.large .gradientImage {
+  width: 162px;
+}
+
+.admin {
+  width: 114px;
+  height: 44px;
+  margin-bottom: 12px;
+}
+
+.admin .image,
+.admin .gradientImage {
+  width: 144px;
+}
+
+.surface {
+  background: var(--brand-gradient);
+  box-shadow: 0 5px 16px rgb(81 20 32 / 16%);
+}
